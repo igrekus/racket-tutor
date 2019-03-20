@@ -57,3 +57,10 @@
   (if (= x 0)
       1
       (* x (fact-rec (- x 1)))))
+
+(define (fact-iter x)
+  (define (iter fun result count)
+    (if (= count 0)
+        result
+        (iter fun (fun result count) (- count 1))))
+  (iter * 1 x))
