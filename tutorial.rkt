@@ -42,5 +42,12 @@
                (colorize (what size) "green")
                (colorize (what size) "blue"))))
 
+(define (привет имя)
+  (display "Привет, ")
+  (display имя)
+  (display "!"))
+(define (пользователь)
+  (write "Представьтесь: ")
+  (read))
 
 
