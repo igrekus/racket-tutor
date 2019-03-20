@@ -53,3 +53,7 @@
 (define (abs x)
   (if (> x 0) x (- x)))
 
+(define (fact-rec x)
+  (if (= x 0)
+      1
+      (* x (fact-rec (- x 1)))))
