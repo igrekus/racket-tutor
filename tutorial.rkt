@@ -64,3 +64,8 @@
         result
         (iter fun (fun result count) (- count 1))))
   (iter * 1 x))
+
+(define (pow-rec what pow)
+  (if (= pow 1)
+      what
+      (* what (pow-rec what (- pow 1)))))
