@@ -37,9 +37,10 @@
    ))
 
 (define (rgb-maker what)
-  (define (app what)
-    (vc-append what what what))
-  (app what))
+  (lambda (size)
+    (vc-append (colorize (what size) "red")
+               (colorize (what size) "green")
+               (colorize (what size) "blue"))))
 
 
 
