@@ -69,3 +69,10 @@
   (if (= pow 1)
       what
       (* what (pow-rec what (- pow 1)))))
+
+(define (pow-iter what pow)
+  (define (iter result count)
+    (if (= count 1)
+        result
+        (iter (* result what) (- count 1))))
+  (iter what pow))
