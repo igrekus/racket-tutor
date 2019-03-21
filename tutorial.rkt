@@ -76,3 +76,9 @@
         result
         (iter (* result what) (- count 1))))
   (iter what pow))
+
+(define (rainbow what)
+  (map (lambda (color)
+         (colorize what color))
+       (list "red" "orange" "yellow" "green" "blue" "purple")))
+
