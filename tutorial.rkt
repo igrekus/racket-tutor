@@ -6,10 +6,6 @@
 (define c (circle 10))
 (define r (rectangle 10 20))
 
-(define (square n)
-  ; defining a commented function
-  (filled-rectangle n n))
-
 (define (four what)
   (define two-p (hc-append what what))
   (vc-append two-p two-p))
@@ -77,8 +73,6 @@
         (iter (* result what) (- count 1))))
   (iter what pow))
 
-(define (rainbow what)
-  (map (lambda (color)
-         (colorize what color))
-       (list "red" "orange" "yellow" "green" "blue" "purple")))
+(require pict/flash)
 
+(require "module.rkt")
