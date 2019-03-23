@@ -76,3 +76,17 @@
 (require pict/flash)
 
 (require "module.rkt")
+
+(define (fib-rec-up num)
+  (define (fib prev cur)
+    (if (> cur num)
+        (display "stop")
+        (begin (display cur)
+               (display "\n")
+               (fib cur (+ cur prev)))))
+  (fib 0 1))
+
+(define (fib-find num)
+  (if (< num 2)
+      num
+      (+ (fib-find (- num 1)) (fib-find (- num 2)))))
