@@ -100,4 +100,19 @@
                 expr
                 (code expr))]))
 
-               
+(require racket/class)
+(require racket/gui/base)
+
+(define f (new frame%
+               [label "yeeee"]
+               [width 300]
+               [height 200]
+               [alignment '(center center)]))
+
+(define (add-drawing what)
+  (let ([drawer (make-pict-drawer what)])
+    (new canvas%
+         [parent f]
+         [style '(border)]
+         [paint-callback (lambda (self dc)
+                           (drawer dc 0 0))])))
