@@ -91,6 +91,17 @@
       num
       (+ (fib-find (- num 1)) (fib-find (- num 2)))))
 
+(define (fib-iter-first n)
+  (define (iter n a b)
+    (display b)
+    (display "\n")
+    (if (= n 0)
+        a
+        (if (= n 1)
+            b
+            (iter (- n 1) b (+ a b)))))
+  (iter n 0 1))
+
 (require slideshow/code)
 
 (define-syntax pict+code
