@@ -13,3 +13,6 @@
 (define i 5)
 ; > (string-append (substring str 0 i) "_" (substring str i))
 
+; Excersize 4
+
+; > (string-append (substring str 0 (- i 1)) (substring str i))
