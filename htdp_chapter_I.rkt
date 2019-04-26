@@ -16,3 +16,21 @@
 ; Excersize 4
 
 ; > (string-append (substring str 0 (- i 1)) (substring str i))
+
+; Excersize 5
+
+;(scene+line
+; (scene+line
+;  (scene+line
+;   (scene+line
+;    (scene+line
+;     (scene+line
+;      (scene+line
+;       (empty-scene 100 100)
+;       30 90 70 90 "black")
+;      20 80 80 80 "black")
+;     20 80 30 90 "black")
+;    80 80 70 90 "black")
+;   50 80 50 40 "black")
+;  50 40 60 50 "black")
+; 60 50 50 60 "black")
