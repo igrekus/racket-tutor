@@ -18,19 +18,28 @@
 ; > (string-append (substring str 0 (- i 1)) (substring str i))
 
 ; Excersize 5
+(define (one-half value)
+  (/ value 2))
+(define (one-third value)
+  (/ value 3))
+(define (one-fifth value)
+  (/ value 5))
+(define (one-tenth value)
+  (/ value 10))
 
-;(scene+line
-; (scene+line
-;  (scene+line
-;   (scene+line
-;    (scene+line
-;     (scene+line
-;      (scene+line
-;       (empty-scene 100 100)
-;       30 90 70 90 "black")
-;      20 80 80 80 "black")
-;     20 80 30 90 "black")
-;    80 80 70 90 "black")
-;   50 80 50 40 "black")
-;  50 40 60 50 "black")
-; 60 50 50 60 "black")
+(define (boat width height)
+  (scene+line
+   (scene+line
+    (scene+line
+     (scene+line
+      (scene+line
+       (scene+line
+        (scene+line
+         (empty-scene width height)
+         (one-third width) (- height (one-tenth height)) (- width (one-third width)) (- height (one-tenth height)) "black")
+        (one-fifth width) (- height (* (one-tenth height) 2)) (- width (one-fifth width)) (- height (* (one-tenth height) 2)) "black")
+       (one-fifth width) (- height (* (one-tenth height) 2)) (one-third width) (- height (one-tenth height)) "black")
+      (- width (one-fifth width)) (- height (* (one-tenth height) 2)) (- width (one-third width)) (- height (one-tenth height)) "black")
+     (one-half width) (- height (* (one-tenth height) 2)) (one-half width) (- (one-half height) (one-tenth height)) "black")
+    (one-half width) (- (one-half height) (one-tenth height)) (+ (one-half width) (one-tenth width)) (one-half height) "black")
+   (+ (one-half width) (one-tenth width)) (one-half height) (one-half width) (+ (one-half height) (one-tenth height)) "black"))
