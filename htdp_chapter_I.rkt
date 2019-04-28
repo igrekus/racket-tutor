@@ -48,3 +48,17 @@
 
 (define (pix-count image)
   (* (image-width image) (image-height image)))
+
+; Excersize 7
+
+(define sunny #true)
+(define friday #false)
+
+(define (is-not-sunny val)
+  (not (and val #true)))
+(define (is-friday val)
+  (and val #true))
+
+(define (go-to-mall s f)
+  (or (is-not-sunny s) (is-friday f)))
+
