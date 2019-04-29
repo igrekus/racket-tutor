@@ -71,3 +71,18 @@
           "wide"
           "tall")))
 
+; Excersize 9
+
+(define (val-to-pos val)
+  (if (string? val)
+      (string-length val)
+      (if (image? val)
+          (* (image-width val) (image-height val))
+          (if (number? val)
+              (if (> val 0)
+                  (- val 1)
+                  val)
+              (if (and val #true)
+                  10
+                  20)))))
+
