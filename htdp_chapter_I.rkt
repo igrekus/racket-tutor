@@ -62,3 +62,12 @@
 (define (go-to-mall s f)
   (or (is-not-sunny s) (is-friday f)))
 
+; Excersize 7
+
+(define (tall-wide image)
+  (if (= (image-width image) (image-height image))
+      "square"
+      (if (> (image-width image) (image-height image))
+          "wide"
+          "tall")))
+
