@@ -93,3 +93,71 @@
               (if (and val #true)
                   10
                   20)))))
+
+; ---
+; Exercise 116
+; Take a look at the following sentences:
+; Explain why they are syntactically legal expressions
+
+; 1. x
+; variable expression, prints the value bound to a variable
+
+; 2. (= y z)
+; primitive application on two variables
+
+; 3. (= (= y z) 0)
+; primitive application on an another primitive and a value
+
+; ---
+; Exercise 117
+; Consider the following sentences:
+; Explain why they are syntactically illegal.
+
+; 1. (3 + 4)
+; values cannot be applied or incorrect primitive application
+
+; 2. number?
+; incorrect function application, no parenthesis
+
+; 3. (x)
+; function application requires at least one variable
+
+; ---
+; Exercise 118
+; Take a look at the following sentences:
+; Explain why they are syntactically legal definitions
+
+; 1. (define (f x) x)
+; defines a function, wich takes one parameter and returns taken parameter
+
+; 2. (define (f x) y)
+; defines a function, wich takes one parameter and returns a variable from outer scope
+
+; 3. (define (f x y) 3)
+; defines a function, wich takes two parameters and returns a value
+
+; ---
+; Exercise 119
+; Consider the following sentences:
+; Explain why they are syntactically illegal.
+
+; 1. (define (f "x") x)
+; illegal function definition, uses value for parameter
+
+; 2. (define (f x y z) (x))
+; error in function body, incorrectly tries to apply variable
+
+; ---
+; Exercise 120
+; Discriminate the legal from the illegal sentences:
+; Explain why the sentences are legal or illegal. Determine whether the legal ones belong to the category expr or def.
+
+; 1. (x)
+; illegal, function application without parameter
+
+; 2. (+ 1 (not x))
+; illegal, second parameter type mismatch
+
+; 3. (+ 1 2 3)
+; legal, expr, primitive application
+
