@@ -1,22 +1,26 @@
 ;; The first three lines of this file were inserted by DrRacket. They record metadata
 ;; about the language level of this file in a form that our tools can easily process.
 #reader(lib "htdp-beginner-reader.ss" "lang")((modname htdp_chapter_I) (read-case-sensitive #t) (teachpacks ((lib "image.rkt" "teachpack" "htdp"))) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ((lib "image.rkt" "teachpack" "htdp")) #f)))
+; ---
 ; Exercise 2
 
 (define prefix "hello")
 (define suffix "world")
 ; > (string-append prefix "_" suffix)
 
+; ---
 ; Exercise 3
 
 (define str "helloworld")
 (define i 5)
 ; > (string-append (substring str 0 i) "_" (substring str i))
 
+; ---
 ; Exercise 4
 
 ; > (string-append (substring str 0 (- i 1)) (substring str i))
 
+; ---
 ; Exercise 5
 (define (one-half value)
   (/ value 2))
@@ -44,11 +48,13 @@
     (one-half width) (- (one-half height) (one-tenth height)) (+ (one-half width) (one-tenth width)) (one-half height) "black")
    (+ (one-half width) (one-tenth width)) (one-half height) (one-half width) (+ (one-half height) (one-tenth height)) "black"))
 
+; ---
 ; Exercise 6
 
 (define (pix-count image)
   (* (image-width image) (image-height image)))
 
+; ---
 ; Exercise 7
 
 (define sunny #true)
@@ -62,6 +68,7 @@
 (define (go-to-mall s f)
   (or (is-not-sunny s) (is-friday f)))
 
+; ---
 ; Exercise 8
 
 (define (tall-wide image)
@@ -71,6 +78,7 @@
           "wide"
           "tall")))
 
+; ---
 ; Exercise 9
 
 (define (val-to-pos val)
