@@ -161,3 +161,103 @@
 ; 3. (+ 1 2 3)
 ; legal, expr, primitive application
 
+; ---
+; Exercise 121
+; Evaluate the following expressions step-by-step:
+; Use DrRacket’s stepper to confirm your computations.
+
+; 1.
+;(+ (* (/ 12 8) 2/3) (- 20 (sqrt 4))) -> (+ (* 3/2  2/3) (- 20 (sqrt 4))) -> (+ 1 (- 20 (sqrt 4))) -> (+ 1 (- 20 2)) -> (+ 1 18) -> 19
+
+; 2.
+;(cond
+;  [(= 0 0) #false]
+;  [(> 0 1) (string=? "a" "a")]
+;  [else (= (/  1 0) 9)])
+; ->
+;(cond
+;  [#true #false]
+;  [(> 0 1) (string=? "a" "a")]
+;  [else (= (/  1 0) 9)])
+; -> #false
+
+; 3.
+; (cond
+;   [(= 2 0) #false]
+;   [(> 2 1) (string=? "a" "a")]
+;   [else (= (/  1 2) 9)]) 
+; ->
+; (cond
+;   [(> 2 1) (string=? "a" "a")]
+;   [else (= (/  1 2) 9)])
+; ->
+; (string=? "a" "a")
+; -> #true
+
+; ---
+; Exercise 122. Suppose the program contains these definitions:
+
+; (define (f x y)
+;   (+ (* 3 x) (* y y)))
+
+; Show how DrRacket evaluates the following expressions, step-by-step:
+
+; (+ (f 1 2) (f 2 1)) -> (+ (+ (* 3 1) (* 2 2)) (f 2 1)) -> (+ (+ 3 (* 2 2)) (f 2 1)) -> (+ (+ 3 4) (f 2 1)) -> (+ 7 (f 2 1)) -> (+ 7 (+ (* 3 2) (* 1 1))) -> (+ 7 (+ 6 (* 1 1))) -> (+ 7 (+ 6 1)) -> (+ 7 7) -> 14
+
+; (f 1 (* 2 3)) -> (f 1 6) -> (+ (* 3 1) (* 6 6)) -> (+ 3 (* 6 6)) -> (+ 3 36) -> 39
+
+; (f (f 1 (* 2 3)) 19) -> (f (f 1 6) 19) -> (f (+ (* 3 1) (* 6 6)) 19) -> (f (+ 3 (* 6 6)) 19) -> (f (+ 3 36) 19) -> (f 39 19) -> (+ (* 3 39) (* 19 19)) -> (+ 117 (* 19 19)) -> (+ 117 361) -> 478
+
+; ---
+; Exercise 123
+; Write down a rule that shows how to reformulate
+;   (if exp-test exp-then exp-else)
+;
+; as a cond expression:
+; 
+;(cond
+;  [exp-test exp-then]
+;  [else exp-else])
+
+; ---
+; Exercise 124
+;
+; 1. Evaluate the following program, step-by-step:
+; (define PRICE 5)
+; (define SALES-TAX (* 0.08 PRICE))
+; (define TOTAL (+ PRICE SALES-TAX))
+; ->
+; (define PRICE 5)
+; (define SALES-TAX (* 0.08 5))
+; (define TOTAL (+ PRICE SALES-TAX))
+; ->
+; (define PRICE 5)
+; (define SALES-TAX 0.4)
+; (define TOTAL (+ PRICE SALES-TAX))
+; ->
+; (define PRICE 5)
+; (define SALES-TAX 0.4)
+; (define TOTAL (+ 5 SALES-TAX))
+; ->
+; (define PRICE 5)
+; (define SALES-TAX 0.4)
+; (define TOTAL (+ 5 0.4))
+; ->
+; (define PRICE 5)
+; (define SALES-TAX 0.4)
+; (define TOTAL 5.4)
+;
+; 2. Does the evaluation of the following program signal an error?
+; (define COLD-F 32)
+; (define COLD-C (fahrenheit->celsius COLD-F))
+; (define (fahrenheit->celsius f)
+;   (* 5/9 (- f 32)))
+; error, fahrenheit->celsius is used before definition
+;
+; 3. How about the next one?
+; (define LEFT -100)
+; (define RIGHT 100)
+; (define (f x) (+ (* 5 (expt x 2)) 10))
+; (define f@LEFT (f LEFT))
+; (define f@RIGHT (f RIGHT))
+; no error, correct definition order
