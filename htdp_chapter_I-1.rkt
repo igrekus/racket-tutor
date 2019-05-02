@@ -261,3 +261,61 @@
 ; (define f@LEFT (f LEFT))
 ; (define f@RIGHT (f RIGHT))
 ; no error, correct definition order
+
+; ---
+; Exercise 125
+; Discriminate the legal from the illegal sentences, explain why the sentences are legal or illegal. 
+;
+; 1. (define-struct oops [])
+; legal, sequence of variables in square parentheses can be empty
+;
+; 2. (define-struct child [parents dob date])
+; legal, correct struct definition
+;
+; 3. (define-struct (child person) [dob date])
+; illegal, function application in place of variable
+
+; ---
+; Exercise 126
+; Identify the values among the following expressions, assuming the definitions area contains these structure type definitions. Explain why the expressions are values or not. 
+; (define-struct point [x y z])
+; (define-struct none [])
+;
+; 1. (make-point 1 2 3) -> point value with x=1 y=2 z=3
+;
+; 2. (make-point (make-point 1 2 3) 4 5) -> point value with x=point(1 2 3) y=2 z=3
+;
+; 3. (make-point (+ 1 2) 3 4) -> point value with x=1+2 y=3 z=4
+;
+; 4. (make-none) -> none value, empty parentheses allowed
+;
+; 5. (make-point (point-x (make-point 1 2 3)) 4 5) -> point value x evaluates to 1
+
+; ---
+; Exercise 127
+; Suppose the program contains 
+; (define-struct ball [x y speed-x speed-y])
+;
+; Predict the results of evaluating the following expression. Explain prediction.
+;
+; (number? (make-ball 1 2 3 4)) -> #false, make-ball produces a struct wich is not a number
+;
+; (ball-speed-y (make-ball (+ 1 2) (+ 3 3) 2 3)) -> 3, extracs speed-y variabl from ball struct, wich is 3 here
+;
+; (ball-y (make-ball (+ 1 2) (+ 3 3) 2 3)) -> 6, extracts y variable from ball struct, wich is 6 here
+;
+; (ball-x (make-posn 1 2)) -> error, ball-x expects a ball struct parameter, but posn struct is given
+;
+; (ball-speed-y 5) -> error, ball-speed-y expects a ball struct parameter, but number 5 is given
+
+; ---
+; Exercise 128
+; Copy the following tests into DrRacket’s definitions area.
+; Validate that all of them fail and explain why.
+; (check-member-of "green" "red" "yellow" "grey") -> "green" is not equal? with any given value
+; (check-within (make-posn #i1.0 #i1.1)
+;               (make-posn #i0.9 #i1.2) 0.01) -> posn(#i1.0 #i1.1) is not equal? to posn(#i0.9 #i1.2) with tolerance of 0.01
+; (check-range #i0.9 #i0.6 #i0.8) -> #i0.9 is not equal? to any of the values from the interval [#i0.6..#i0.8)
+; (check-random (make-posn (random 3) (random 9))
+;               (make-posn (random 9) (random 3))) -> random is applied to different intervals on both occurences, wich yields different result
+; (check-satisfied 4 odd?) -> test case fails to satisfy the predicate since 4 is even and predicate check wether a number is odd
