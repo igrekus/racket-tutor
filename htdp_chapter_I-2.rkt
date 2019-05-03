@@ -133,4 +133,84 @@
 ; Confirm your expectation with DrRacket and its stepper.
 ; (string-insert "helloworld" 6) -> (string-append (substring "helloworld" 0 6) "_" (substring "helloworld" 6)) -> (string-append "hellow" "_" "orld") -> "hellow_orld"
 
+; ---
+; Movie theater
 
+(define BASE-ATTENDANCE 120)
+(define BASE-TICKET-PRICE 5.0)
+(define BASE-COST 180)
+(define PER-ATTENDEE-COST 0.04)
+(define ATTENDEES-TO-PRICE-RATE (/ 15 0.1))
+
+(define (attendees ticket-price)
+  (- BASE-ATTENDANCE (* (- ticket-price BASE-TICKET-PRICE) ATTENDEES-TO-PRICE-RATE)))
+
+(define (revenue ticket-price)
+  (* ticket-price (attendees ticket-price)))
+
+(define (cost ticket-price)
+  (+ BASE-COST (* PER-ATTENDEE-COST (attendees ticket-price))))
+
+(define (profit ticket-price)
+  (- (revenue ticket-price) (cost ticket-price)))
+
+; Exercise 27
+; Refactor constant definitions in the above program
+
+; Exercise 28
+; Determine the potential profit for these ticket prices: $1, $2, $3, $4, and $5.
+; Which price maximizes the profit of the movie theater? Determine the best ticket price to a dime.
+;
+; (profit 5) -> 415.2
+; (profit 4) -> 889.2
+; (profit 3) -> 1063.2
+; (profit 2) -> 937.2
+; (profit 1) -> 511.2
+; (profit 2.9) -> 1064.1 (max profit)
+
+(define (profit-alt price)
+  (- (* (+ 120
+           (* (/ 15 0.1)
+              (- 5.0 price)))
+        price)
+     (+ 180
+        (* 0.04
+           (+ 120
+              (* (/ 15 0.1)
+                 (- 5.0 price)))))))
+
+; Enter this definition into DrRacket and ensure that it produces the same results as the original version for $1, $2, $3, $4, and $5.
+
+; (check-expect (profit 5) (profit-alt 5)) -> pass
+; (check-expect (profit 4) (profit-alt 4)) -> pass
+; (check-expect (profit 3) (profit-alt 3)) -> pass
+; (check-expect (profit 2) (profit-alt 2)) -> pass
+; (check-expect (profit 1) (profit-alt 1)) -> pass
+
+; Exercise 29
+; After studying the costs of a show, the owner discovered several ways of lowering the cost.
+; As a result of these improvements, there is no longer a fixed cost; a variable cost of $1.50 per attendee remains.
+; Modify both programs to reflect this change.
+; When the programs are modified, test them again with ticket prices of $3, $4, and $5 and compare the results. 
+
+(define PER-ATTENDEE-COST-NEW 1.5)
+
+(define (cost-new ticket-price)
+  (* PER-ATTENDEE-COST-NEW (attendees ticket-price)))
+
+(define (profit-new ticket-price)
+  (- (revenue ticket-price) (cost-new ticket-price)))
+
+(define (profit-alt-new price)
+  (- (* (+ 120
+           (* (/ 15 0.1)
+              (- 5.0 price)))
+        price)
+        (* 1.5
+           (+ 120
+              (* (/ 15 0.1)
+                 (- 5.0 price))))))
+
+; (check-expect (profit-new 5) (profit-alt-new 5)) -> pass
+; (check-expect (profit-new 4) (profit-alt-new 4)) -> pass
+; (check-expect (profit-new 3) (profit-alt-new 3)) -> pass
