@@ -140,10 +140,10 @@
 (define BASE-TICKET-PRICE 5.0)
 (define BASE-COST 180)
 (define PER-ATTENDEE-COST 0.04)
-(define ATTENDEES-TO-PRICE-RATE (/ 15 0.1))
+(define PRICE-SENSITIVITY (/ 15 0.1))
 
 (define (attendees ticket-price)
-  (- BASE-ATTENDANCE (* (- ticket-price BASE-TICKET-PRICE) ATTENDEES-TO-PRICE-RATE)))
+  (- BASE-ATTENDANCE (* (- ticket-price BASE-TICKET-PRICE) PRICE-SENSITIVITY)))
 
 (define (revenue ticket-price)
   (* ticket-price (attendees ticket-price)))
