@@ -226,3 +226,9 @@
                  (string->number
                   (read-file in))))
                "\n")))
+
+; Exercise 30
+; skip
+
+; Exercise 31
+; skip
