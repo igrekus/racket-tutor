@@ -261,6 +261,7 @@
     [on-tick sub1]
     [stop-when zero?]
     [to-draw place-dot-at]
+    [on-mouse me-h]
     [on-key stop]))
 
 (define (place-dot-at y)
@@ -268,3 +269,8 @@
 
 (define (stop y ke)
   0)
+
+(define (me-h state x y me)
+  (if (string=? me "button-down")
+      y
+      state))
