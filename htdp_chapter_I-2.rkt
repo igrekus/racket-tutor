@@ -247,3 +247,8 @@
 ;   [on-tick sub1]
 ;   [stop-when zero?]
 ;   [on-key reset])
+
+; (define cw1 (ke-h cw0 "a"))
+; (define cw2 (tock cw1))
+; (define cw3 (me-h cw2 90 100 "button-down"))
+; reformulate as a single expression -> (me-h (tock (ke-h cw0 "a")) 90 100 "button-down")
