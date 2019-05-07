@@ -119,3 +119,9 @@
 ; (end? cw)
 (define (end? cw) ...)
 
+; WorldState -> WorldState
+; launches the program for initial state
+(define (main ws)
+  (big-bang ws
+    [on-tick tock]
+    [to-draw render]))
