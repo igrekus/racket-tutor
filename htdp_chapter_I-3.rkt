@@ -89,6 +89,13 @@
 (define X0 30)
 (define Y0 20)
 
+(define TREE-X (* (/ WIDTH-OF-WORLD 3) 2))
+(define TREE-Y Y0)
+(define TREE
+  (underlay/xy (circle 10 "solid" "green")
+               9 15
+               (rectangle 2 20 "solid" "brown")))
+
 ; finction wishlist
 ; render -- maps state to the representing image
 ; clock-tick-handler -- handles the state change in time
@@ -104,10 +111,12 @@
 ; WorldState -> Image
 ; main loop draws the image of the car x pixels from the left border of the BACKGROUND.
 ; (render cw)
-(check-expect (render 0) (place-image CAR (+ X0 0) Y0 BACKGROUND))
+(check-expect (render 0) (place-image CAR (+ X0 0) Y0
+                                      (place-image TREE TREE-X TREE-Y BACKGROUND)))
 
 (define (render cw)
-  (place-image CAR (+ X0 cw) Y0 BACKGROUND))
+  (place-image CAR (+ X0 cw) Y0
+               (place-image TREE TREE-X TREE-Y BACKGROUND)))
 
 ; WorldState -> WorldState
 ; add 3 to x to move the car to the right
