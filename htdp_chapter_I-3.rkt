@@ -71,11 +71,13 @@
 ; 1. Introduce constants for unchanging objects
 
 ; physical constants
-(define (WIDTH-OF-WORLD 200))
+(define WIDTH-OF-WORLD 400)
+(define HEIGHT-OF-WORLD 30)
 (define WHEEL-RADIUS 5)
 (define WHEEL-DISTANCE (* WHEEL-RADIUS 5))
 
 ; graphial constants
+(define BACKGROUND (empty-scene WIDTH-OF-WORLD HEIGHT-OF-WORLD))
 (define WHEEL (circle WHEEL-RADIUS "solid" "black"))
 (define SPACE (rectangle ... WHEEL-RADIUS ... "white"))
 (define BOTH-WHEELS WHEEL SPACE WHEEL)
