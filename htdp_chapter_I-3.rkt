@@ -78,9 +78,14 @@
 
 ; graphial constants
 (define BACKGROUND (empty-scene WIDTH-OF-WORLD HEIGHT-OF-WORLD))
+(define CAR-BODY (rectangle (* WHEEL-RADIUS 10) (* WHEEL-RADIUS 2) "solid" "red"))
 (define WHEEL (circle WHEEL-RADIUS "solid" "black"))
-(define SPACE (rectangle ... WHEEL-RADIUS ... "white"))
-(define BOTH-WHEELS WHEEL SPACE WHEEL)
+(define SPACE (rectangle (* WHEEL-RADIUS 2) WHEEL-RADIUS "solid" "white"))
+(define BOTH-WHEELS (beside WHEEL SPACE WHEEL))
+(define CAR (overlay/xy CAR-BODY (* WHEEL-RADIUS 2) (* WHEEL-RADIUS 2) BOTH-WHEELS))
+
+(define X0 30)
+(define Y0 20)
 
 ; finction wishlist
 ; render -- maps state to the representing image
