@@ -76,7 +76,9 @@
 (define WHEEL-RADIUS 5)
 (define WHEEL-DISTANCE (* WHEEL-RADIUS 5))
 
-; graphial constants
+; graphical constants
+; Exercise 39
+; draw a car using WHEEL-RADIUS as a single control point
 (define BACKGROUND (empty-scene WIDTH-OF-WORLD HEIGHT-OF-WORLD))
 (define CAR-BODY (rectangle (* WHEEL-RADIUS 10) (* WHEEL-RADIUS 2) "solid" "red"))
 (define WHEEL (circle WHEEL-RADIUS "solid" "black"))
