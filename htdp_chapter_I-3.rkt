@@ -12,8 +12,9 @@
 
 ; String -> String
 ; extracts the first character from a given non-empty string
-; "Hello world!" -> "H"
-; "test" -> "t"
+(check-expect (string-first "Hello world!") "H")
+(check-expect (string-first "test") "t")
+
 (define (string-first s)
   (substring s 0 1))
 
@@ -23,8 +24,9 @@
 
 ; String -> String
 ; extracts the last character from a given non-empty string
-; "Hello world!" -> "!"
-; "test" -> "t"
+(check-expect (string-first "Hello world!") "!")
+(check-expect (string-first "test") "t")
+
 (define (string-last s)
   (substring s (- (string-length s) 1)))
 
@@ -35,7 +37,8 @@
 ; Image -> Number
 ; Number represents the area of an input Image in pixels, or number of pixels in an input Image.
 ; computes the number of pixels in an input Image
-; (circle 10 "solid" "red") -> 400
+(check-expect (image-area (circle 10 "solid" "red")) 400)
+
 (define (image-area img)
   (* (image-width img) (image-height img)))
 
@@ -45,8 +48,9 @@
 
 ; String -> String
 ; returns the input string with the first character removed
-; "Hello world!" -> "ello world!"
-; "test" -> "est"
+(check-expect (string-first "Hello world!") "ello world!")
+(check-expect (string-first "test") "est")
+
 (define (string-rest s) 
   (substring s 1))
 
@@ -56,8 +60,8 @@
 
 ; String -> String
 ; returns the input string with the last character removed
-; "Hello world!" -> "Hello world"
-; "test" -> "tes"
+(check-expect (string-first "Hello world!") "Hello world")
+(check-expect (string-first "test") "tes")
+
 (define (string-remove-last s)
   (substring s 0 (- (string-length s) 1)))
-
