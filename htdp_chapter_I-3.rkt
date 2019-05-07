@@ -99,15 +99,22 @@
 ; cw => WorldState is Number
 ; interpretation: the number of pixels between the left border of the scene and the leftmost pixel of the car
 
+; Exercise 40
+; Write test for functions
 ; WorldState -> Image
 ; main loop draws the image of the car x pixels from the left border of the BACKGROUND.
 ; (render cw)
+(check-expect (render 0) (place-image CAR (+ X0 0) Y0 BACKGROUND))
+
 (define (render cw)
   (place-image CAR (+ X0 cw) Y0 BACKGROUND))
 
 ; WorldState -> WorldState
 ; add 3 to x to move the car to the right
 ; (tock x)
+(check-expect (tock 20) 23)
+(check-expect (tock 78) 81)
+
 (define (tock x)
   (+ x 3))
 
