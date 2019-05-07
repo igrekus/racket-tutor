@@ -140,11 +140,13 @@
 ; WorldState -> Boolean
 ; after each event main loop determins if the program should stop
 ; (end? cw)
-(define (end? cw) ...)
+(define (end? cw)
+  (< WIDTH-OF-WORLD cw))
 
 ; WorldState -> WorldState
 ; launches the program for initial state
 (define (main ws)
   (big-bang ws
     [on-tick tock]
+    [stop-when end?]
     [to-draw render]))
