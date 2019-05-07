@@ -91,14 +91,16 @@
 ; interpretation: the number of pixels between the left border of the scene and the leftmost pixel of the car
 
 ; WorldState -> Image
-; main loop draws the image of the current world by evaluating
+; main loop draws the image of the car x pixels from the left border of the BACKGROUND.
 ; (render cw)
-(define (render cw) ...)
+(define (render cw)
+  BACKGROUND)
 
 ; WorldState -> WorldState
-; main loop obtains the next state of the world each clock tick by evaluating
-; (clock-tick-handler cw)
-(define (clock-tick-handler cw) ...)
+; add 3 to x to move the car to the right
+; (tock x)
+(define (tock x)
+  x)
 
 ; WorldState -> WorldState
 ; for each user keystroke main loop obtains the next state of the world; ke represents the key
