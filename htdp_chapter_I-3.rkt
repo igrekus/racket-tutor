@@ -109,7 +109,7 @@
 ; add 3 to x to move the car to the right
 ; (tock x)
 (define (tock x)
-  x)
+  (+ x 3))
 
 ; WorldState -> WorldState
 ; for each user keystroke main loop obtains the next state of the world; ke represents the key
