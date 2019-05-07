@@ -24,8 +24,8 @@
 
 ; String -> String
 ; extracts the last character from a given non-empty string
-(check-expect (string-first "Hello world!") "!")
-(check-expect (string-first "test") "t")
+(check-expect (string-last "Hello world!") "!")
+(check-expect (string-last "test") "t")
 
 (define (string-last s)
   (substring s (- (string-length s) 1)))
@@ -48,8 +48,8 @@
 
 ; String -> String
 ; returns the input string with the first character removed
-(check-expect (string-first "Hello world!") "ello world!")
-(check-expect (string-first "test") "est")
+(check-expect (string-rest "Hello world!") "ello world!")
+(check-expect (string-rest "test") "est")
 
 (define (string-rest s) 
   (substring s 1))
@@ -60,8 +60,8 @@
 
 ; String -> String
 ; returns the input string with the last character removed
-(check-expect (string-first "Hello world!") "Hello world")
-(check-expect (string-first "test") "tes")
+(check-expect (string-remove-last "Hello world!") "Hello world")
+(check-expect (string-remove-last "test") "tes")
 
 (define (string-remove-last s)
   (substring s 0 (- (string-length s) 1)))
