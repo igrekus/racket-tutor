@@ -101,7 +101,7 @@
 ; main loop draws the image of the car x pixels from the left border of the BACKGROUND.
 ; (render cw)
 (define (render cw)
-  BACKGROUND)
+  (place-image CAR (+ X0 cw) Y0 BACKGROUND))
 
 ; WorldState -> WorldState
 ; add 3 to x to move the car to the right
