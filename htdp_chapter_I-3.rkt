@@ -65,3 +65,53 @@
 
 (define (string-remove-last s)
   (substring s 0 (- (string-length s) 1)))
+
+; ---
+; Designing a world program
+; 1. Introduce constants for unchanging objects
+
+; physical constants
+(define (WIDTH-OF-WORLD 200))
+(define WHEEL-RADIUS 5)
+(define WHEEL-DISTANCE (* WHEEL-RADIUS 5))
+
+; graphial constants
+(define WHEEL (circle WHEEL-RADIUS "solid" "black"))
+(define SPACE (rectangle ... WHEEL-RADIUS ... "white"))
+(define BOTH-WHEELS WHEEL SPACE WHEEL)
+
+; finction wishlist
+; render -- maps state to the representing image
+; clock-tick-handler -- handles the state change in time
+; keystroke-handler -- handles state reaction to user key input
+; mouse-event-handler -- handles state reaction to user mouse input
+; end? -- if needed, defines the state of the world that should signal the end of the program
+
+; cw => WorldState is Number
+; interpretation: the number of pixels between the left border of the scene and the leftmost pixel of the car
+
+; WorldState -> Image
+; main loop draws the image of the current world by evaluating
+; (render cw)
+(define (render cw) ...)
+
+; WorldState -> WorldState
+; main loop obtains the next state of the world each clock tick by evaluating
+; (clock-tick-handler cw)
+(define (clock-tick-handler cw) ...)
+
+; WorldState -> WorldState
+; for each user keystroke main loop obtains the next state of the world; ke represents the key
+; (keystroke-handler cw ke)
+(define (keystroke-handler cw ke) ...)
+
+; WorldState Number Number String -> WorldState
+; for each mouse gesture main loop obtains the next state of the world; x, y represent coordinates of the event, me represents event description
+; (mouse-evemt-handler cw x y me)
+(define (mouse-event-handler cw x y me) ...)
+
+; WorldState -> Boolean
+; after each event main loop determins if the program should stop
+; (end? cw)
+(define (end? cw) ...)
+
