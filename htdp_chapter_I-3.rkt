@@ -108,14 +108,16 @@
 
 ; Exercise 40
 ; Write test for functions
+; Exercise 41
+; change the interpretation of the WorldState to use right border of the CAR image
 ; WorldState -> Image
 ; main loop draws the image of the car x pixels from the left border of the BACKGROUND.
 ; (render cw)
-(check-expect (render 0) (place-image CAR (+ X0 0) Y0
+(check-expect (render 0) (place-image CAR (+ X0 0 (image-width CAR)) Y0
                                       (place-image TREE TREE-X TREE-Y BACKGROUND)))
 
 (define (render cw)
-  (place-image CAR (+ X0 cw) Y0
+  (place-image CAR (+ X0 cw (image-width CAR)) Y0
                (place-image TREE TREE-X TREE-Y BACKGROUND)))
 
 ; WorldState -> WorldState
