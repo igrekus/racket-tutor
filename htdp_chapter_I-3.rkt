@@ -132,7 +132,8 @@
 ; WorldState -> WorldState
 ; for each user keystroke main loop obtains the next state of the world; ke represents the key
 ; (keystroke-handler cw ke)
-(define (keystroke-handler cw ke) ...)
+(define (keystroke-handler cw ke)
+  0)
 
 ; WorldState Number Number String -> WorldState
 ; for each mouse gesture main loop obtains the next state of the world; x, y represent coordinates of the event, me represents event description
@@ -151,4 +152,5 @@
   (big-bang ws
     [on-tick tock]
     [stop-when end?]
+    [on-key keystroke-handler]
     [to-draw render]))
