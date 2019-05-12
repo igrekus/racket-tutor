@@ -99,8 +99,8 @@
 ; finction wishlist
 ; + render -- maps state to the representing image
 ; + clock-tick-handler -- handles the state change in time
-; keystroke-handler -- handles state reaction to user key input
-; mouse-event-handler -- handles state reaction to user mouse input
+; + keystroke-handler -- handles state reaction to user key input
+; + mouse-event-handler -- handles state reaction to user mouse input
 ; + end? -- if needed, defines the state of the world that should signal the end of the program
 
 ; cw => WorldState is Number
