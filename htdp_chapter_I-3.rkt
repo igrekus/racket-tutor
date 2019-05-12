@@ -138,7 +138,10 @@
 ; WorldState Number Number String -> WorldState
 ; for each mouse gesture main loop obtains the next state of the world; x, y represent coordinates of the event, me represents event description
 ; (mouse-evemt-handler cw x y me)
-(define (mouse-event-handler cw x y me) ...)
+(define (mouse-event-handler cw x y me)
+  (if (string=? me "button-down")
+      x
+      cw))
 
 ; WorldState -> Boolean
 ; after each event main loop determins if the program should stop
@@ -153,4 +156,5 @@
     [on-tick tock]
     [stop-when end?]
     [on-key keystroke-handler]
+    [on-mouse mouse-event-handler]
     [to-draw render]))
