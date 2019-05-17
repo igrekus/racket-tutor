@@ -133,7 +133,7 @@
 ; for each user keystroke main loop obtains the next state of the world; ke represents the key
 ; (keystroke-handler cw ke)
 (define (keystroke-handler cw ke)
-  0)
+  (- cw 15))
 
 ; WorldState Number Number String -> WorldState
 ; for each mouse gesture main loop obtains the next state of the world; x, y represent coordinates of the event, me represents event description
