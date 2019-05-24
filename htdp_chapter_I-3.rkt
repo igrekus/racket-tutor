@@ -132,6 +132,9 @@
 ; WorldState -> WorldState
 ; for each user keystroke main loop obtains the next state of the world; ke represents the key
 ; (keystroke-handler cw ke)
+(check-expect (keystroke-handler 15 "left") 0)
+(check-expect (keystroke-handler 30 "right") 15)
+
 (define (keystroke-handler cw ke)
   (- cw 15))
 
