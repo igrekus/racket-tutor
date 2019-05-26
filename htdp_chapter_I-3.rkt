@@ -141,6 +141,9 @@
 ; WorldState Number Number String -> WorldState
 ; for each mouse gesture main loop obtains the next state of the world; x, y represent coordinates of the event, me represents event description
 ; (mouse-evemt-handler cw x y me)
+(check-expect (mouse-event-handler 0 10 10 "button-down") 10)
+(check-expect (mouse-event-handler 0 10 10 "eeee") 0)
+
 (define (mouse-event-handler cw x y me)
   (if (string=? me "button-down")
       x
