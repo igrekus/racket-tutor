@@ -152,6 +152,9 @@
 ; WorldState -> Boolean
 ; after each event main loop determins if the program should stop
 ; (end? cw)
+(check-expect (end? 0) #false)
+(check-expect (end? 401) #true)
+
 (define (end? cw)
   (< WIDTH-OF-WORLD cw))
 
