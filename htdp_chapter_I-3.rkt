@@ -140,8 +140,8 @@
 ; WorldState -> WorldState
 ; add 3 to x to move the car to the right
 ; (tock x)
-(check-expect (tock 20) 23)
-(check-expect (tock 78) 81)
+(check-expect (tock 20) (+ 20 SPEED))
+(check-expect (tock 78) (+ 78 SPEED))
 
 (define (tock x)
   (+ x SPEED))
