@@ -103,7 +103,7 @@
 ; + mouse-event-handler -- handles state reaction to user mouse input
 ; + end? -- if needed, defines the state of the world that should signal the end of the program
 
-; cw => WorldState is Number
+; cw => WorldState is a Number
 ; interpretation: the number of pixels between the left border of the scene and the leftmost pixel of the car
 
 ; Exercise 40
