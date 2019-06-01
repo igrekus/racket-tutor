@@ -89,6 +89,8 @@
 (define X0 30)
 (define Y0 20)
 
+(define SPEED 1)
+
 (define TREE-X (* (/ WIDTH-OF-WORLD 3) 2))
 (define TREE-Y Y0)
 (define TREE
@@ -106,6 +108,9 @@
 ; cw => WorldState is a Number
 ; interpretation: the number of pixels between the left border of the scene and the leftmost pixel of the car
 
+; aw => Animation is a Number
+; interpretation: the number of clock ticks passed since the program start
+
 ; Exercise 40
 ; Write test for functions
 ; Exercise 41
@@ -120,6 +125,18 @@
   (place-image CAR (+ X0 cw (image-width CAR)) Y0
                (place-image TREE TREE-X TREE-Y BACKGROUND)))
 
+; Exercise 41
+; change the interpretation of the WorldState to use right border of the CAR image
+; WorldState -> Image
+; main loop draws the image of the car x pixels from the left border of the BACKGROUND.
+; (render aw)
+(check-expect (render-time 0) (place-image CAR (+ X0 0 (image-width CAR)) Y0
+                                           (place-image TREE TREE-X TREE-Y BACKGROUND)))
+
+(define (render-time aw)
+  (place-image CAR (+ X0 (* aw SPEED) (image-width CAR)) Y0
+               (place-image TREE TREE-X TREE-Y BACKGROUND)))
+
 ; WorldState -> WorldState
 ; add 3 to x to move the car to the right
 ; (tock x)
@@ -128,6 +145,9 @@
 
 (define (tock x)
   (+ x 3))
+
+; AnimationState -> AnimationState
+
 
 ; WorldState -> WorldState
 ; for each user keystroke main loop obtains the next state of the world; ke represents the key
@@ -166,4 +186,4 @@
     [stop-when end?]
     [on-key keystroke-handler]
     [on-mouse mouse-event-handler]
-    [to-draw render]))
+    [to-draw render-time]))
