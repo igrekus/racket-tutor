@@ -134,7 +134,7 @@
                                            (place-image TREE TREE-X TREE-Y BACKGROUND)))
 
 (define (render-time aw)
-  (place-image CAR (+ X0 (* aw SPEED) (image-width CAR)) Y0
+  (place-image CAR (+ X0 aw (image-width CAR)) Y0
                (place-image TREE TREE-X TREE-Y BACKGROUND)))
 
 ; WorldState -> WorldState
@@ -144,7 +144,7 @@
 (check-expect (tock 78) 81)
 
 (define (tock x)
-  (+ x 3))
+  (+ x SPEED))
 
 ; AnimationState -> AnimationState
 
