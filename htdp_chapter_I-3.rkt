@@ -113,10 +113,10 @@
 ; WorldState -> Image
 ; main loop draws the image of the car x pixels from the left border of the BACKGROUND.
 ; (render cw)
-(check-expect (render 0) (place-image CAR (+ X0 0 (image-width CAR)) Y0
-                                      (place-image TREE TREE-X TREE-Y BACKGROUND)))
+(check-expect (render-coord 0) (place-image CAR (+ X0 0 (image-width CAR)) Y0
+                                            (place-image TREE TREE-X TREE-Y BACKGROUND)))
 
-(define (render cw)
+(define (render-coord cw)
   (place-image CAR (+ X0 cw (image-width CAR)) Y0
                (place-image TREE TREE-X TREE-Y BACKGROUND)))
 
