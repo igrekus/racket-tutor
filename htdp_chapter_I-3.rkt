@@ -180,6 +180,8 @@
 
 ; WorldState -> WorldState
 ; launches the program for initial state
+; (check-expect (main 400) 401)
+
 (define (main ws)
   (big-bang ws
     [on-tick tock]
