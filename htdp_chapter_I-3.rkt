@@ -189,3 +189,25 @@
     [on-key keystroke-handler]
     [on-mouse mouse-event-handler]
     [to-draw render-time]))
+
+; Virtual pet world
+
+(define CAT-WORLD-MAX-X 400)
+(define CAT-WORLD-MAX-Y 400)
+(define CAT-BACKGROUND (empty-scene CAT-WORLD-MAX-X CAT-WORLD-MAX-Y))
+(define CAT1 (circle 20 "solid" "green"))
+(define CAT2 (circle 18 "solid" "gray"))
+(define CAT-SPEED 3)
+
+(define (cat-render x)
+  (place-image CAT1 x (/ CAT-WORLD-MAX-Y 2) CAT-BACKGROUND))
+
+(define (cat-tock x)
+  (if (> x CAT-WORLD-MAX-X)
+      0
+      (+ x CAT-SPEED)))
+
+(define (cat-prog ws)
+  (big-bang ws
+    [to-draw cat-render]
+    [on-tick cat-tock]))
