@@ -200,7 +200,9 @@
 (define CAT-SPEED 3)
 
 (define (cat-render x)
-  (place-image CAT1 x (/ CAT-WORLD-MAX-Y 2) CAT-BACKGROUND))
+  (if (odd? x)
+      (place-image CAT1 x (/ CAT-WORLD-MAX-Y 2) CAT-BACKGROUND)
+      (place-image CAT2 x (/ CAT-WORLD-MAX-Y 2) CAT-BACKGROUND)))
 
 (define (cat-tock x)
   (if (> x CAT-WORLD-MAX-X)
