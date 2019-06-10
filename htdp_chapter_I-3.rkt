@@ -202,6 +202,9 @@
 
 ; WorldState -> Image
 ; draws an image of a cat according to the WorldState, which is x coordinate from the left window border
+(check-expect (cat-render 50) (place-image CAT2 50 (/ CAT-WORLD-MAX-Y 2) CAT-BACKGROUND))
+(check-expect (cat-render 51) (place-image CAT1 51 (/ CAT-WORLD-MAX-Y 2) CAT-BACKGROUND))
+              
 (define (cat-render x)
   (if (odd? x)
       (place-image CAT1 x (/ CAT-WORLD-MAX-Y 2) CAT-BACKGROUND)
@@ -209,6 +212,9 @@
 
 ; WorldState -> WorldState
 ; for each clock tick increase the x coordinate by CAT-SPEED
+(check-expect (cat-tock 20) (+ 20 CAT-SPEED))
+(check-expect (cat-tock 21) (+ 21 CAT-SPEED))
+
 (define (cat-tock x)
   (if (> x CAT-WORLD-MAX-X)
       0
