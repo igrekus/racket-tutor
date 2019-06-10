@@ -193,6 +193,7 @@
 
 ; ===
 ; Virtual pet world
+; Exercise 45
 (define CAT-WORLD-MAX-X 400)
 (define CAT-WORLD-MAX-Y 400)
 (define CAT-BACKGROUND (empty-scene CAT-WORLD-MAX-X CAT-WORLD-MAX-Y))
@@ -202,6 +203,7 @@
 
 ; WorldState -> Image
 ; draws an image of a cat according to the WorldState, which is x coordinate from the left window border
+; Exercise 46
 (check-expect (cat-render 50) (place-image CAT2 50 (/ CAT-WORLD-MAX-Y 2) CAT-BACKGROUND))
 (check-expect (cat-render 51) (place-image CAT1 51 (/ CAT-WORLD-MAX-Y 2) CAT-BACKGROUND))
               
