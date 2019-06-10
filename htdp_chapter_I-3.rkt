@@ -113,8 +113,10 @@
 
 ; Exercise 40
 ; Write test for functions
+
 ; Exercise 41
 ; change the interpretation of the WorldState to use right border of the CAR image
+
 ; WorldState -> Image
 ; main loop draws the image of the car x pixels from the left border of the BACKGROUND.
 ; (render cw)
@@ -148,7 +150,6 @@
 
 ; AnimationState -> AnimationState
 
-
 ; WorldState -> WorldState
 ; for each user keystroke main loop obtains the next state of the world; ke represents the key
 ; (keystroke-handler cw ke)
@@ -179,7 +180,7 @@
   (< WIDTH-OF-WORLD cw))
 
 ; WorldState -> WorldState
-; launches the program for initial state
+; launches the program for the initial state
 ; (check-expect (main 400) 401)
 
 (define (main ws)
@@ -190,8 +191,8 @@
     [on-mouse mouse-event-handler]
     [to-draw render-time]))
 
+; ===
 ; Virtual pet world
-
 (define CAT-WORLD-MAX-X 400)
 (define CAT-WORLD-MAX-Y 400)
 (define CAT-BACKGROUND (empty-scene CAT-WORLD-MAX-X CAT-WORLD-MAX-Y))
@@ -199,16 +200,22 @@
 (define CAT2 (circle 18 "solid" "gray"))
 (define CAT-SPEED 3)
 
+; WorldState -> Image
+; draws an image of a cat according to the WorldState, which is x coordinate from the left window border
 (define (cat-render x)
   (if (odd? x)
       (place-image CAT1 x (/ CAT-WORLD-MAX-Y 2) CAT-BACKGROUND)
       (place-image CAT2 x (/ CAT-WORLD-MAX-Y 2) CAT-BACKGROUND)))
 
+; WorldState -> WorldState
+; for each clock tick increase the x coordinate by CAT-SPEED
 (define (cat-tock x)
   (if (> x CAT-WORLD-MAX-X)
       0
       (+ x CAT-SPEED)))
 
+; WorldState -> WorldState
+; launches the program for the initial state
 (define (cat-prog ws)
   (big-bang ws
     [to-draw cat-render]
