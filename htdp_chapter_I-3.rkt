@@ -228,3 +228,5 @@
   (big-bang ws
     [to-draw cat-render]
     [on-tick cat-tock]))
+
+(define-struct gauge-ws [cur max])
