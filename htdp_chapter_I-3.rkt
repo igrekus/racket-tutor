@@ -229,4 +229,35 @@
     [to-draw cat-render]
     [on-tick cat-tock]))
 
-(define-struct gauge-ws [cur max])
+; ===
+; Exercise 47.
+; Design a world program that maintains and displays a “happiness gauge.”
+; Let’s call it gauge-prog, and let’s agree that the program consumes the maximum level of happiness.
+; The gauge display starts with the maximum score, and with each clock tick, happiness decreases by -0.1; it never falls below 0, the minimum happiness score.
+; Every time the down arrow key is pressed, happiness increases by 1/5; every time the up arrow is pressed, happiness jumps by 1/3.
+
+; To show the level of happiness, we use a scene with a solid, red rectangle with a black frame.
+; For a happiness level of 0, the red bar should be gone; for the maximum happiness level of 100, the bar should go all the way across the scene.
+
+(define GAUGE-WIDTH 200)
+(define GAUGE-HEIGHT 20)
+(define GAUGE-BORDER "black")
+(define GAUGE-COLOR "red")
+(define GAUGE-MIN 0)
+(define GAUGE-DECAY -0.1)
+(define GAUGE-SLOW-INC 1/5)
+(define GAUGE-FAST-INC 1/3)
+
+; WorldState struct
+; represents the world state, stores the current and maximum levels of happines 
+(define-struct WorldState [cur max])
+
+; WorldState -> WorldState
+; launches gauge program for the initial state maximum gauge level
+(define (gauge-prog max-level)
+  (big-bang max-level
+    [to-draw gauge-render]
+    [on-tick gauge-tock]))
+
+(define (gauge-render level)
+  (place-image (gauge level) 
