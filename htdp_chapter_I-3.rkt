@@ -247,6 +247,7 @@
 (define GAUGE-DECAY -0.1)
 (define GAUGE-SLOW-INC 1/5)
 (define GAUGE-FAST-INC 1/3)
+(define GAUGE-BG (empty-scene GAUGE-WIDTH GAUGE-HEIGHT))
 
 ; WorldState struct
 ; represents the world state, stores the current and maximum levels of happines 
