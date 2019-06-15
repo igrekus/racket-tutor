@@ -239,7 +239,7 @@
 ; To show the level of happiness, we use a scene with a solid, red rectangle with a black frame.
 ; For a happiness level of 0, the red bar should be gone; for the maximum happiness level of 100, the bar should go all the way across the scene.
 
-(define GAUGE-WIDTH 200)
+(define GAUGE-WIDTH 400)
 (define GAUGE-HEIGHT 20)
 (define GAUGE-BORDER "black")
 (define GAUGE-COLOR "red")
