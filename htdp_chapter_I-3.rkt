@@ -254,7 +254,7 @@
 (define-struct WorldState [cur max])
 
 ; WorldState -> WorldState
-; launches gauge program for the initial state maximum gauge level
+; launches gauge program for the initial state of maximum gauge level
 (define (gauge-prog max-level)
   (big-bang max-level
     [to-draw gauge-render]
