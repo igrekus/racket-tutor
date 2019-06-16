@@ -251,7 +251,7 @@
 
 ; WorldState struct
 ; represents the world state, stores the current and maximum levels of happines 
-(define-struct WorldState [cur max])
+(define-struct gs [cur max])
 
 ; WorldState -> WorldState
 ; launches gauge program for the initial state of maximum gauge level
