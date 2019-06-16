@@ -255,10 +255,13 @@
 
 ; WorldState -> WorldState
 ; launches gauge program for the initial state of maximum gauge level
-(define (gauge-prog max-level)
-  (big-bang max-level
+(define (gauge-prog ws)
+  (big-bang ws
     [to-draw gauge-render]
     [on-tick gauge-tock]))
 
 (define (gauge-render level)
-  (place-image (gauge level) 
+  (place-image (circle 10 "solid" "red") 0 0 GAUGE-BG))
+
+(define (gauge-tock ws)
+  ws)
