@@ -261,7 +261,10 @@
     [on-tick gauge-tock]))
 
 (define (gauge-render level)
-  (place-image (circle 10 "solid" "red") 0 0 GAUGE-BG))
+  (place-image (rectangle level GAUGE-HEIGHT "solid" "blue") 0 (/ GAUGE-HEIGHT 2) GAUGE-BG))
 
 (define (gauge-tock ws)
-  ws)
+  (if (> ws GAUGE-MIN)
+      (- ws GAUGE-DECAY)
+      ws))
+
