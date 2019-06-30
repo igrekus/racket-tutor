@@ -268,3 +268,5 @@
       (+ ws GAUGE-DECAY)
       ws))
 
+(define (gauge-key ws key)
+  ws)
