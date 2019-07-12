@@ -245,8 +245,8 @@
 (define GAUGE-COLOR "red")
 (define GAUGE-MIN 0)
 (define GAUGE-DECAY -0.1)
-(define GAUGE-SLOW-INC 1/5)
-(define GAUGE-FAST-INC 1/3)
+(define GAUGE-SLOW-INC (/ GAUGE-WIDTH 5))
+(define GAUGE-FAST-INC (/ GAUGE-WIDTH 3))
 (define GAUGE-BG (empty-scene GAUGE-WIDTH GAUGE-HEIGHT))
 
 ; WorldState struct
