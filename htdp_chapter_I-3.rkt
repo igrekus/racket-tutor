@@ -258,7 +258,8 @@
 (define (gauge-prog ws)
   (big-bang ws
     [to-draw gauge-render]
-    [on-tick gauge-tock]))
+    [on-tick gauge-tock]
+    [on-key gauge-key]))
 
 (define (gauge-render level)
   (place-image (rectangle level GAUGE-HEIGHT "solid" "red") 0 (/ GAUGE-HEIGHT 2) GAUGE-BG))
@@ -269,4 +270,6 @@
       ws))
 
 (define (gauge-key ws key)
-  ws)
+  (cond [(string=? key "down") (+ ws GAUGE-SLOW-INC)]
+        [else ws]))
+
