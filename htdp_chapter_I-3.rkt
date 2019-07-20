@@ -224,6 +224,8 @@
 
 ; WorldState -> WorldState
 ; launches the program for the initial state
+; (check-satisfied (cat-prog 10) odd?)
+
 (define (cat-prog ws)
   (big-bang ws
     [to-draw cat-render]
